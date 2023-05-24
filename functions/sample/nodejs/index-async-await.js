@@ -11,9 +11,23 @@ async function main(params) {
           authenticator: authenticator
       });
       cloudant.setServiceUrl(params.COUCH_URL);
+      
       try {
+
+        let list = await cloudant.postAllDocsQueries({db: 'dealerships',includeDocs: true})
+        /**
+        cloudant.getDatabaseInformation({db: 'dealerships'})
+        .then(response => {
+            console.log(response.result);
+          });
+        
         let dbList = await cloudant.getAllDbs();
-        return { "dbs": dbList.result };
+        let mydb = await cloudant.db.use('dealerships');
+        
+        var q = "SELECT * from dealerships"
+        mydb.query(q).then(console.log)
+        */
+        return { "dbs": list.result };
       } catch (error) {
           return { error: error.description };
       }
