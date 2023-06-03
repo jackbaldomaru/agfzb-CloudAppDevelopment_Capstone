@@ -33,15 +33,11 @@ class CarModel(models.Model):
     dealer_id = models.IntegerField()
     model_type = models.CharField(max_length=50)
     date = models.DateField(null=True)
-    carmake = models.ForeignKey(CarMake)
+    carmake = models.ForeignKey(CarMake, null=True, on_delete=models.CASCADE)
     
     # Create a toString method for object string representation
     def __str__(self):
-        return self.name + " " + 
-        str(self.dealer_id) + " " +
-        self.model_type + " " +
-        str(self.date) + " " +
-        str(self.carmake)
+        return self.name + " " + str(self.dealer_id) + " " + self.model_type + " " + str(self.date) + " " + str(self.carmake)
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
 
