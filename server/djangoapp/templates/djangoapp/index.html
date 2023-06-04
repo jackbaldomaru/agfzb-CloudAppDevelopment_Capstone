@@ -41,45 +41,6 @@
                     {% endif %}
                 </ul>
             </div>
-<<<<<<< HEAD
-            <ul class="nav navbar-nav navbar-right">
-                {% if user.is_authenticated %}
-                <li>
-                    <a class="btn btn-link" href="./">{{ user.first_name }}({{ user.username }})</a>
-                    <a class="btn btn-link" href="{% url 'djangoapp:logout' %}" >Logout</a>
-                </li>
-                {% else %}
-                <li>
-                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Username" name="username" >
-                            <input type="password" class="form-control" placeholder="Password" name="psw" >
-                            <button class="btn btn-primary" type="submit">Login</button>
-                            <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
-                        </div>
-                    </form>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-
-    <!--Add a dealer table here -->
-    {% if dealership_list %}
-    <ul>
-    {% for Dealership in dealership_list %}
-        <div>
-            <img src="{{ MEDIA_URL }}/{{ course.image }}" width="360" height="360" >
-            <h1><b>{{ Dealership.name }}</b></h1>
-        </div>
-    {% endfor %}
-    </ul>
-{% else %}
-<p>No courses are available.</p>
-{% endif %}
-
-=======
         </nav>
         <!--Add a dealer table here -->
         <table class="table" id="table" data-filter-control="true">
@@ -106,7 +67,6 @@
                 {% endfor %}
             </tbody>
         </table>
->>>>>>> 37f0c8d (fix 1 tl)
     </body>
     <script>
         $(function() {
