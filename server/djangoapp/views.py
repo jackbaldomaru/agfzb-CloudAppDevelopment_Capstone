@@ -81,7 +81,7 @@ def registration_request(request):
 def get_dealerships(request):
     context = {}
     if request.method == "GET":
-        url = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/get-dealership"
+        url = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/get-dealership"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         # Return a list of dealer short name
@@ -93,8 +93,8 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     context = {}
     if request.method == "GET":
-        review_url = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/get-reviews"
-        dealer_url = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/get-dealership"
+        review_url = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/get-review"
+        dealer_url = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/get-dealership"
         # Get dealers from the URL
         reviews = get_dealer_reviews_from_cf(review_url, dealer_id)
         dealer = get_dealer_by_id_from_cf(dealer_url, dealer_id)
@@ -105,9 +105,9 @@ def get_dealer_details(request, dealer_id):
 
 # Create a `add_review` view to submit a review
 def add_review(request, dealer_id):
-    dealer_url      = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/get-dealership"
-    postreview_url  = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/post-review"
-    getreview_url   = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/get-reviews"
+    dealer_url      = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/get-dealership"
+    postreview_url  = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/post-review"
+    getreview_url   = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/get-review"
     
     context = {}
     dealer = get_dealer_by_id_from_cf(dealer_url, dealer_id)
