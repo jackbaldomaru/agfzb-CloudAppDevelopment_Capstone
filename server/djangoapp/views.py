@@ -2,13 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
-<<<<<<< HEAD
-from .models import CarDealer
-from .restapis import get_dealers_from_cf, get_request
-=======
 from .models import CarModel, CarMake, CarDealer
 from .restapis import get_dealers_from_cf, get_dealer_reviews_from_cf, get_dealer_by_id_from_cf, post_request
->>>>>>> 37f0c8d (fix 1 tl)
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from datetime import datetime
@@ -83,26 +78,14 @@ def registration_request(request):
             return render(request, 'djangoapp/registration.html', context)
 
 # Update the `get_dealerships` view to render the index page with a list of dealerships
-#def get_dealerships(request):
-#    context = {}
-#    if request.method == "GET":
-#        return render(request, 'djangoapp/index.html', context)
 def get_dealerships(request):
-    print("dealerships")
     context = {}
     if request.method == "GET":
-<<<<<<< HEAD
-        url = "https://eu-de.functions.appdomain.cloud/api/v1/web/ddae85a9-b5d3-434a-b801-bd8e746894d1/dealership-package/get-dealership"
-        # Get dealers from the URL
-        dealerships = get_dealers_from_cf(url)
-        context["dealership_list"] = dealerships
-=======
         url = "https://us-south.functions.appdomain.cloud/api/v1/web/d8ee8f4b-8372-4a98-ad6c-90832ee9122f/dealership-package/get-dealership"
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         # Return a list of dealer short name
         context['dealerships'] = dealerships
->>>>>>> 37f0c8d (fix 1 tl)
         return render(request, 'djangoapp/index.html', context)
 
 

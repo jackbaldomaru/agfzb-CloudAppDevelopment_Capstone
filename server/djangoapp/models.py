@@ -9,24 +9,12 @@ from django.utils.timezone import now
 # - Description
 # - Any other fields you would like to include in car make model
 # - __str__ method to print a car make object
-<<<<<<< HEAD
-
-class CarMake(models.Model):
-    name = models.CharField(null=False, max_length=50, default='carmake name')
-    description = models.CharField(null=False, max_length=100, default='carmake desc')
-    
-    # Create a toString method for object string representation
-    def __str__(self):
-        return self.name + " " + self.description
-
-=======
 class CarMake(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=320)
     
     def __str__(self) -> str:
         return self.name + ""
->>>>>>> 37f0c8d (fix 1 tl)
 
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
@@ -36,43 +24,6 @@ class CarMake(models.Model):
 # - Year (DateField)
 # - Any other fields you would like to include in car model
 # - __str__ method to print a car make object
-<<<<<<< HEAD
-
-class CarModel(models.Model):
-    name = models.CharField(null=False, max_length=50, default='carmodel name')
-    dealer_id = models.IntegerField()
-    model_type = models.CharField(max_length=50)
-    date = models.DateField(null=True)
-    carmake = models.ForeignKey(CarMake, null=True, on_delete=models.CASCADE)
-    
-    # Create a toString method for object string representation
-    def __str__(self):
-        return self.name + " " + str(self.dealer_id) + " " + self.model_type + " " + str(self.date) + " " + str(self.carmake)
-
-# <HINT> Create a plain Python class `CarDealer` to hold dealer data
-class CarDealer:
-    def __init__(self, address, city, full_name, id, lat, long, short_name, st, zip):
-        # Dealer address
-        self.address = address
-        # Dealer city
-        self.city = city
-        # Dealer Full Name
-        self.full_name = full_name
-        # Dealer id
-        self.id = id
-        # Location lat
-        self.lat = lat
-        # Location long
-        self.long = long
-        # Dealer short name
-        self.short_name = short_name
-        # Dealer state
-        self.st = st
-        # Dealer zip
-        self.zip = zip
-    def __str__(self):
-        return "Dealer name: " + self.full_name
-=======
 class CarModel(models.Model):
     SEDAN = 'sedan'
     SUV = 'suv'
@@ -95,7 +46,6 @@ class CarModel(models.Model):
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
 class CarDealer:
->>>>>>> 37f0c8d (fix 1 tl)
 
     def __init__(self, address, city, full_name, id, lat, long, short_name, st, zip):
         # Dealer address
