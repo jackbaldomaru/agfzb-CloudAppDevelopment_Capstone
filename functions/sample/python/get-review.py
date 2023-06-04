@@ -1,3 +1,4 @@
+"""
 import sys
 
 from ibmcloudant.cloudant_v1 import CloudantV1
@@ -28,3 +29,5 @@ def main(param_dict):
             'statusCode': 404,
             'message':"dealerId does not exist"
         }
+
+"""

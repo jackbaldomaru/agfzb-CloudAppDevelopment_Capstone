@@ -1,3 +1,4 @@
+"""
 import sys
 
 from ibmcloudant.cloudant_v1 import CloudantV1, Document
@@ -32,3 +33,4 @@ def main(param_dict):
             'statusCode': 500,
             'message': "Something went wrong on the server"
         }
+"""
