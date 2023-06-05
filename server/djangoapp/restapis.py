@@ -34,6 +34,7 @@ def get_request(url, **kwargs):
     status_code = response.status_code
     print("With status {} ".format(status_code))
     json_data = json.loads(response.text)
+    print("JSON DATA: " + str(json_data))
     return json_data
 
 # Create a `post_request` to make HTTP POST requests
@@ -115,7 +116,7 @@ def get_dealer_reviews_from_cf(url, dealer_id):
     json_result = get_request(url, dealerId=dealer_id)
     if json_result:
         # Get the row list in JSON as dealers
-        reviews = json_result["docs"]
+        reviews = json_result
         # For each dealer object
         for review in reviews:
             # Create a CarDealer object with values in `doc` object
@@ -130,8 +131,8 @@ def get_dealer_reviews_from_cf(url, dealer_id):
 def analyze_review_sentiments(dealer_review):
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
-    apikey = "GRoTDKE9oIkdQRe1nYNDDgjVUwISXbPUNM8Wc1HNwU_0"
-    url = "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/14157bdf-5dcb-4adf-b08c-2e3ea9cc59f0"
+    apikey = "y6W70KW5upGD3XrmGZSo1cXfHU_yVKoal85xQISvzl8W"
+    url = "https://api.eu-de.natural-language-understanding.watson.cloud.ibm.com/instances/30129a03-6795-4f1f-bbf2-9a477164e4ed"
     
     authenticator = IAMAuthenticator(apikey)
     natural_language_understanding = NaturalLanguageUnderstandingV1(
